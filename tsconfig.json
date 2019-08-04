@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": [ "es2018", "dom" ],
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceRoot": ".",
+    "inlineSourceMap": true
+  },
+  "include": [
+    "./index.ts"
+  ]
+}
