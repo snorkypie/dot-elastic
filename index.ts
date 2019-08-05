@@ -28,7 +28,9 @@ export function u (strings: TemplateStringsArray): string {
   return `${uniqId()}${strings.raw[0]}`;
 }
 
-function dot (input: DotElasticType, retval: DotElasticType = {}): DotElasticType {
+function dot (input: DotElasticType, base?: DotElasticType): DotElasticType {
+  const retval = base ? JSON.parse(JSON.stringify(base)) : {};
+
   Object.keys(input).forEach((key) => {
     let ptr = retval;
     const _nodes = key.split(reMatchNodes),
