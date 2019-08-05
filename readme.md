@@ -24,11 +24,9 @@ import dot from 'dot-elastic';
 
 ```javascript
 dot({ 'a.b.c': 1, 'a.b.d': 2 });
-dot([ [ 'a.b.c', 1 ], [ 'a.b.d', 2 ] ]);
 ```
 
 ```json
-{ "a": { "b": { "c": 1, "d": 2 } } }
 { "a": { "b": { "c": 1, "d": 2 } } }
 ```
 
