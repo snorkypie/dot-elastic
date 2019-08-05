@@ -58,6 +58,24 @@ describe('handles dot syntax', () => {
     });
   });
 
+
+  it('can handle nested lists', () => {
+    expect(dot({
+      [u`a[].b[].c`]: 10,
+      [u`a[].b[].c`]: 20,
+    })).to.deep.equal({
+      a: [ {
+        b: [ {
+          c: 10,
+        } ],
+      }, {
+        b: [ {
+          c: 20,
+        } ],
+      } ],
+    });
+  });
+
   it('can handle escaped lists', () => {
     expect(dot({
       'foo\\.a\\[\\]': 100,
