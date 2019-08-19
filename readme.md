@@ -158,6 +158,38 @@ dot({
 }
 ```
 
+Create shortcuts inside objects for prettier formatting (new in 1.0.3). This example is copied from `test.ts`.
+
+```javascript
+const obj = {};
+
+const shortcut = dot.ln('query.bool.must[].bool', obj);
+dot({ 'should[].term.aid': 10 }, shortcut);
+dot({ 'should[].term.bid': 20 }, shortcut);
+```
+
+```json
+{
+    "query": {
+        "bool": {
+            "must": [ {
+                "bool": {
+                    "should": [ {
+                        "term": {
+                            "aid": 10
+                        }
+                    }, {
+                        "term": {
+                            "bid": 20
+                        }
+                    } ]
+                }
+            } ]
+        }
+    }
+}
+```
+
 ## Contribute!
 
 This code is not optimized at all right now but it's not really slow either but any improvements are very welcome!

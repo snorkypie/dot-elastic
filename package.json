@@ -1,6 +1,6 @@
 {
   "name": "dot-elastic",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Create objects using advanced dot syntax",
   "author": "Steeve Lennmark <steevel@handeldsbanken.se>",
   "main": "lib/index.js",

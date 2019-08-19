@@ -125,4 +125,32 @@ describe('handles dot syntax', () => {
       foo: { a: 10, b: { c: 20 } },
     });
   });
+
+  it('can handle shortcuts', () => {
+    const obj = {};
+
+    const shortcut = dot.ln('query.bool.must[].bool', obj);
+    dot({ 'should[].term.aid': 10 }, shortcut);
+    dot({ 'should[].term.bid': 20 }, shortcut);
+
+    expect(obj).to.deep.equal({
+      query: {
+        bool: {
+          must: [
+            {
+              bool: {
+                should: [
+                  {
+                    term: { aid: 10 },
+                  }, {
+                    term: { bid: 20 },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    });
+  });
 });
