@@ -35,6 +35,19 @@ describe('handles dot syntax', () => {
     });
   });
 
+  it('correctly clones input object when clone options is passed', () => {
+    const initial = dot({ a: 100 });
+    expect(dot({
+      b: 200,
+    }, initial, { clone: true })).to.deep.equal({
+      a: 100,
+      b: 200,
+    });
+    expect(initial).to.deep.equal({
+      a: 100,
+    })
+  });
+
   it('can handle escaped dots', () => {
     expect(dot({
       'foo.bar\\.one': 500,
